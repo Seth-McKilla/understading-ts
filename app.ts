@@ -1,34 +1,12 @@
-enum Role {
-  ADMIN,
-  READ_ONLY,
-  AUTHOR,
+function combine(n1: number | string, n2: number | string) {
+  let result;
+  if (typeof n1 === "number" && typeof n2 === "number") {
+    result = n1 + n2;
+  } else {
+    result = n1.toString() + n2.toString();
+  }
+  return result;
 }
 
-// const person: {
-//   name: string;
-//   age: number;
-//   hobbies: string[];
-//   role: [number, string];
-// } = {
-//   name: "Seth",
-//   age: 30,
-//   hobbies: ["Coding", "Crypto"],
-//   role: [2, "author"],
-// };
-
-const person = {
-  name: "Seth",
-  age: 30,
-  hobbies: ["Coding", "Crypto"],
-  role: Role.ADMIN,
-};
-
-let favoriteActivities: string[];
-favoriteActivities = ["Coding"];
-
-console.log(person.name);
-
-for (const hobby of person.hobbies) {
-  console.log(hobby.toUpperCase());
-  // console.log(hobby.map()); !!! ERROR !!!
-}
+console.log(combine(10, 20));
+console.log(combine("Seth", "Chen"));
