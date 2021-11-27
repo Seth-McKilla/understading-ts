@@ -1,12 +1,19 @@
-function combine(n1: number | string, n2: number | string) {
+function combine(
+  input1: number | string,
+  input2: number | string,
+  resultConversion: "as-number" | "as-text"
+) {
   let result;
-  if (typeof n1 === "number" && typeof n2 === "number") {
-    result = n1 + n2;
+  if (
+    (typeof input1 === "number" && typeof input2 === "number") ||
+    resultConversion === "as-number"
+  ) {
+    result = +input1 + +input2;
   } else {
-    result = n1.toString() + n2.toString();
+    result = input1.toString() + input2.toString();
   }
   return result;
 }
 
-console.log(combine(10, 20));
-console.log(combine("Seth", "Chen"));
+console.log(combine(10, 20, "as-number"));
+console.log(combine("Seth", "Chen", "as-text"));

@@ -1,31 +1,13 @@
-var Role;
-(function (Role) {
-    Role[Role["ADMIN"] = 0] = "ADMIN";
-    Role[Role["READ_ONLY"] = 1] = "READ_ONLY";
-    Role[Role["AUTHOR"] = 2] = "AUTHOR";
-})(Role || (Role = {}));
-// const person: {
-//   name: string;
-//   age: number;
-//   hobbies: string[];
-//   role: [number, string];
-// } = {
-//   name: "Seth",
-//   age: 30,
-//   hobbies: ["Coding", "Crypto"],
-//   role: [2, "author"],
-// };
-var person = {
-    name: "Seth",
-    age: 30,
-    hobbies: ["Coding", "Crypto"],
-    role: Role.ADMIN
-};
-var favoriteActivities;
-favoriteActivities = ["Coding"];
-console.log(person.name);
-for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
-    var hobby = _a[_i];
-    console.log(hobby.toUpperCase());
-    // console.log(hobby.map()); !!! ERROR !!!
+function combine(input1, input2, resultConversion) {
+    var result;
+    if ((typeof input1 === "number" && typeof input2 === "number") ||
+        resultConversion === "as-number") {
+        result = +input1 + +input2;
+    }
+    else {
+        result = input1.toString() + input2.toString();
+    }
+    return result;
 }
+console.log(combine(10, 20, "as-number"));
+console.log(combine("Seth", "Chen", "as-text"));
